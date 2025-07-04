@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dna-scan-artifacts
-          path: ./build/architecture/exports/
+          path: ./build/sonar/architecture/exports/
