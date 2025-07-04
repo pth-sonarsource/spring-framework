@@ -33,8 +33,10 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          export SONAR_ARCHITECTURE_EXPORT_GRAPHS=true
+          SONAR_ARCHITECTURE_EXPORT_GRAPHS: true
+          SONAR_ARCHITECTURE_EXPORT_FLAVOR: true
+          SONAR_ARCHITECTURE_EXPORT_ISSUES: true
+        run:
           ./gradlew build sonar -Dorg.gradle.jvmargs="-Xmx4g" --info -x test
       - name: Store dna xml & json files
         uses: actions/upload-artifact@v4
