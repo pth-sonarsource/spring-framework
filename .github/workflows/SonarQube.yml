@@ -5,6 +5,9 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+  # Trigger at 1:00 AM UTC on weekdays (Monday-Friday)
+  schedule:
+    - cron: '0 1 * * 1-5'
 jobs:
   build:
     name: Build and analyze
