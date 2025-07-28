@@ -37,11 +37,11 @@ jobs:
           SONAR_ARCHITECTURE_EXPORT_FLAVOR: true
           SONAR_ARCHITECTURE_EXPORT_ISSUES: true
         run: |
-          ./gradlew build sonar -Dorg.gradle.jvmargs="-Xmx4g" --info -x test
+          ./gradlew build sonar -Dorg.gradle.jvmargs="-Xmx4g" -Dsonar.architecture.visualization.enabled=false -Dsonar.architecture.enable=true -Dsonar.architecture.preview.enable=true -Dsonar.architecture.preview.available=true --info -x test
           echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
           echo "DATE=$(echo $(date +'%Y-%m-%d'))" >> $GITHUB_ENV
       - name: Store dna xml & json files
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.DATE }}-${{ github.event.repository.name }}-${{ env.SHORT_SHA }}-dna-scan-artifacts
-          path: ./target/sonar/architecture/exports/
+          path: ./build/sonar/architecture/exports/
