@@ -7,15 +7,13 @@ plugins {
 	id 'io.github.goooler.shadow' version '8.1.8' apply false
 	id 'me.champeau.jmh' version '0.7.2' apply false
 	id "io.spring.nullability" version "0.0.1" apply false
-	id "org.sonarqube" version "6.2.0.5505"
-
+	id "org.sonarqube" version "7.2.0.6526"
 }
 
 sonar {
   properties {
-    property "sonar.projectKey", "the-dna-squad_spring-framework"
-    property "sonar.organization", "the-dna-squad"
-    property "sonar.host.url", "https://dev19.sc-dev19.io"
+    property "sonar.projectKey", "pth_spring-framework"
+    property "sonar.organization", "pth"
   }
 }
 
